@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 114401963537199392}
   m_Layer: 0
   m_Name: MapNode_Default_1
-  m_TagString: Untagged
+  m_TagString: MapNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -906,7 +906,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1060754341259156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.52, y: 3.84, z: 0}
+  m_LocalPosition: {x: 23.205318, y: 6.4942417, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4290102476614358}
@@ -1920,7 +1920,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000038146973, y: 1.7662535}
+  m_Offset: {x: 0.02440548, y: 1.3514624}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1931,7 +1931,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18.094467, y: 11.67296}
+  m_Size: {x: 21.364016, y: 14.064119}
   m_EdgeRadius: 0
 --- !u!61 &61980639318286572
 BoxCollider2D:
@@ -2653,8 +2653,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03545f8e7df7cc34ab5521b2690656d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParentNode: {fileID: 0}
+  ChildNodes: []
+  HitNode: {fileID: 0}
   Width: 12
-  Height: 0
+  Height: 6
+  Secured: 0
+  HasUpGate: 0
+  HasRightGate: 1
+  HasDownGate: 0
+  HasLeftGate: 1
+  upGates: []
+  rightGates: []
+  downGates: []
+  leftGates: []
 --- !u!114 &114115705680342792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3192,7 +3204,7 @@ MonoBehaviour:
   _guid: 5d81ad87-79cd-473e-bebe-2f91beb377bb
 --- !u!114 &114401963537199392
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 11
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1060754341259156}
@@ -3253,6 +3265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Side: 3
+  Full: 0
 --- !u!114 &114477843369167802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3392,6 +3406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Side: 3
+  Full: 0
 --- !u!114 &114560416208863112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3522,6 +3538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Side: 3
+  Full: 0
 --- !u!114 &114698289386111448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3877,7 +3895,7 @@ MonoBehaviour:
   _assetGuid: 54d13df5f69a9f74f86989c45a2c87bd
 --- !u!114 &114891378347771876
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 11
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1060754341259156}
@@ -4106,6 +4124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Side: 3
+  Full: 0
 --- !u!114 &114980685136888276
 MonoBehaviour:
   m_ObjectHideFlags: 1

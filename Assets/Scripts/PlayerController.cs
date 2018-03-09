@@ -48,6 +48,15 @@ public class PlayerController : MonoBehaviour {
         {
             Application.Quit();
         }
+
+        if(Input.GetButtonDown("ShiftRight"))
+        {
+            ColorManager.ShiftRight();
+        }
+        else if(Input.GetButtonDown("ShiftLeft"))
+        {
+            ColorManager.ShiftLeft();
+        }
     }
 
     private void Die()

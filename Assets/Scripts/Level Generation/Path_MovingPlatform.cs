@@ -14,6 +14,7 @@ public class Path_MovingPlatform : BasePath {
         // Set path range
 		minDist = new Vector2(0,0);
         maxDist = new Vector2(20, 20);
+        LoadPlatformPrefab();
 	}
 	
     // Load the correct platform prefab depending on the color

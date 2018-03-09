@@ -46,10 +46,6 @@ public class ColorManager : MonoBehaviour {
         _colors = new Dictionary<COLOR, ColorNode>();
         InitializeColors();
     }
-    private void OnEnable()
-    {
-        RegisterCallbacks();
-    }
     private void OnDisable()
     {
         UnregisterCallbacks();
@@ -77,7 +73,8 @@ public class ColorManager : MonoBehaviour {
         _colors[COLOR.BLUE] = blueNode;
         _colors[COLOR.GREEN] = greenNode;
 
-
+        RegisterCallbacks();
+        _activeColor = greenNode;
         ActivateColor(COLOR.GREEN);
 
     }
@@ -87,22 +84,31 @@ public class ColorManager : MonoBehaviour {
     // Toggle a color
     public static void ToggleColor(COLOR color)
     {
-        OnToggleColor(color);
+        OnToggleColor.Invoke(color);
     }
     // Activate a color
     public static void ActivateColor(COLOR color)
     {
-        OnActivateColor(color);
+        OnActivateColor.Invoke(color);
     }
     // Inactivate a color
     public static void InactivateColor(COLOR color)
     {
-        OnInactivateColor(color);
+        OnInactivateColor.Invoke(color);
     }
     // Reset the level
     public static void ResetLevel()
     {
         OnResetLevel();
+    }
+
+    public static void ShiftRight()
+    {
+        OnShiftRight.Invoke();
+    }
+    public static void ShiftLeft()
+    {
+        OnShiftLeft.Invoke();
     }
     #endregion
 
@@ -162,12 +168,14 @@ public class ColorManager : MonoBehaviour {
     }
     private void ShiftRightCallback()
     {
+        //Debug.Log("Shifting right from " + _activeColor.color + " to " + _activeColor.RightNode.color);
         InactivateColor(_activeColor.color);
         _activeColor = _activeColor.RightNode;
         ActivateColor(_activeColor.color);
     }
     private void ShiftLeftCallback()
     {
+        //Debug.Log("Shifting left from " + _activeColor.color + " to " + _activeColor.LeftNode.color);
         InactivateColor(_activeColor.color);
         _activeColor = _activeColor.LeftNode;
         ActivateColor(_activeColor.color);

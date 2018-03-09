@@ -7,7 +7,7 @@ public abstract class BasePath : MonoBehaviour {
     protected Gate _gateA;
     protected Gate _gateB;
 
-    protected COLOR _color = COLOR.NONE;
+    protected COLOR _color = COLOR.BLUE;
 
     /// <summary>
     /// Distance from gate A to B
@@ -31,7 +31,7 @@ public abstract class BasePath : MonoBehaviour {
         _length = Mathf.Sqrt(distVector.x * distVector.x + distVector.y * distVector.y);
 
         // Check that the path can reach
-        if(distVector.x < minDist.x || distVector.y < minDist.y)
+        if(Mathf.Abs(distVector.x) < minDist.x || Mathf.Abs(distVector.y) < minDist.y)
         {
             Debug.LogWarning("Path too short.");
             return false;

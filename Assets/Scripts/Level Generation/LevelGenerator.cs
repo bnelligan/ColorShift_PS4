@@ -2,66 +2,179 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Direction { NORTH, EAST, SOUTH, WEST}
+public enum Direction { UP, RIGHT, DOWN, LEFT, NULL}
 public class LevelGenerator : MonoBehaviour {
 
     public static readonly float TileSize = 1.28f;
 
-    public Vector2 MapBounds;
+    public Vector2 MapUpperBounds;
+    public Vector2 MapLowerBounds;
 
     // Min and Max distance between map nodes [x and y distances, not diagonal]
-    public float xMinDist = 3;
-    public float xMaxDist = 10;
-    public float dy = 7;
+    public float minSeperation = 6f;
+    /// <summary>
+    /// Maximum seperation between level segments in tiles
+    /// </summary>
+    public float maxSeperation = 15f;
+    public float maxPlacementAngle;
 
     [SerializeField]
     public List<BasePath> PossiblePathPrefabs;
     [SerializeField]
     public List<MapNode> PossibleNodePrefabs;
 
-    private Vector2 currPos;
-
     [SerializeField]
     MapNode rootNode;   // Node the player starts at
-    MapNode currentNode;
-
-    List<MapNode> _completedNodes;
-    List<MapNode> _newNodes;
+    
+    // Node prefabs with gates in each cardinal direction
+    [HideInInspector]
+    public List<MapNode> LeftNodePrefabs;
+    [HideInInspector]
+    public List<MapNode> RightNodePrefabs;
+    [HideInInspector]
+    public List<MapNode> UpNodePrefabs;
+    [HideInInspector]
+    public List<MapNode> DownNodePrefabs;
+   
 
     private void Awake()
     {
-        _completedNodes = new List<MapNode>();
-        _newNodes = new List<MapNode>();
-        currentNode = rootNode;
+        LeftNodePrefabs = new List<MapNode>();
+        RightNodePrefabs = new List<MapNode>();
+        UpNodePrefabs = new List<MapNode>();
+        DownNodePrefabs = new List<MapNode>();
+
+
+        foreach (MapNode node in PossibleNodePrefabs)
+        {
+            // Check and log gate directions
+            if (node.HasUpGate)
+            {
+                UpNodePrefabs.Add(node);
+            }  
+            if (node.HasRightGate)
+            {
+                RightNodePrefabs.Add(node);
+            }
+            if(node.HasDownGate)
+            {
+                DownNodePrefabs.Add(node);
+            }
+            if(node.HasLeftGate)
+            {
+                LeftNodePrefabs.Add(node);
+            }
+        }
     }
     private void Start()
     {
-        currentNode = rootNode;
-        CreateLevel();
+        rootNode.Init();
+        rootNode.Populate();
     }
-
-    public void CreateLevel()
+   
+    public MapNode CreateNode(MapNode parentNode, Gate parentGate)
     {
+        // Initialize return vars
+        MapNode newNode = null;
+        Gate newGate = null;
+        List<MapNode> prefabList = null;
+
+        // Randomize placement info
+        float angle = Random.Range(-maxPlacementAngle, maxPlacementAngle) * Mathf.Deg2Rad;
+        float dist = Random.Range(minSeperation, maxSeperation);
+        float dx;
+        float dy;
+        Vector2 dispVec;
+
+        // Calculate displacement vector and choose prefab list
+        Direction dir = parentGate.Side;
+        switch(dir)
+        {
+            case Direction.UP:
+                dx = Mathf.Sin(angle);
+                dy = Mathf.Cos(angle);
+                prefabList = DownNodePrefabs;
+                break;
+            case Direction.RIGHT:
+                dx = Mathf.Cos(angle);
+                dy = Mathf.Sin(angle);
+                prefabList = LeftNodePrefabs;
+                break;
+            case Direction.DOWN:
+                dx = Mathf.Sin(angle);
+                dy = -Mathf.Cos(angle); // Flip sign
+                prefabList = UpNodePrefabs;
+                break;
+            case Direction.LEFT:
+                dx = -Mathf.Cos(angle); // Flip sign
+                dy = Mathf.Sin(angle);
+                prefabList = RightNodePrefabs;
+                break;
+            default:
+                dx = 0;
+                dy = 0;
+                break;
+        }
+        dispVec = new Vector2(dx, dy) * dist;
+
+        // Verify prefab list
+        if(prefabList == null)
+        {
+            Debug.LogWarning("Level generator unable to choose a list of possible nodes.");
+            Debug.Log("Parent Node: " + parentNode.name);
+            Debug.Log("Parent Gate: " + parentGate.name);
+            return null;
+        }
+
+        // Create a random node from the list of valid prefabs
+        int inode = Random.Range(0, prefabList.Count);
+        Debug.Log("Random node index: " + inode);
+        MapNode nodePrefab = prefabList[inode];
+        Vector3 newPos = parentGate.transform.position + (Vector3)dispVec * TileSize;
+        GameObject goNode = Instantiate(nodePrefab.gameObject, newPos, parentNode.transform.rotation);
+        newNode = goNode.GetComponent<MapNode>();
+        newNode.Init();
+
+        // Check if it's overlapping another section
+        if (!newNode.IsValidPosition)
+        {
+            Debug.LogWarning("Invalid node: " + newNode.name);
+            Destroy(newNode);
+            return null;
+        }
+        else
+            newNode.Secured = true;
+
+        // Check that the node is in bounds
+        if(!CheckBounds(newNode.WorldPosition))
+        {
+            Debug.LogWarning("Node out of bounds: " + newNode.name);
+            Destroy(newNode);
+            return null;
+        }
+
+        // Create a random path to connect the nodes
+        BasePath pathPrefab = PossiblePathPrefabs[Random.Range(0, PossiblePathPrefabs.Count - 1)];
+        GameObject goPath = Instantiate(pathPrefab.gameObject, parentGate.transform);
+        BasePath path = goPath.GetComponent<BasePath>();
         
+        // Connect the gates with the path
+        newGate = newNode.FindClosestGate(parentGate, 1000, out dist);
+        path.CreatePath(parentGate, newGate);
+
+        // Return the new node to it's parent node
+        return newNode;
     }
 
-    private bool CreateNode(MapNode startNode, Gate startGate)
+    // To be implemented
+    public void ConnectNodes(MapNode nodeA, MapNode nodeB, Gate gateA, Gate gateB)
     {
-        // Random x and y distance between nodes
-        float dx = Random.Range(xMinDist, xMaxDist);
-        // Vector2 for distance between nodes
-        Vector2 dist = new Vector2(currentNode.Width + dx, dy);
 
-        int iNode = Random.Range(0, PossibleNodePrefabs.Count);
-
-        MapNode destNode = Instantiate( PossibleNodePrefabs[iNode]);
-        destNode.WorldPosition = currentNode.WorldPosition + dist;
-        return true; // Success
     }
 
     public bool CheckBounds(Vector2 position)
     {
-        return position.x > 0 && position.y > 0 && position.x < MapBounds.x && position.y < MapBounds.y;
+        return position.x > MapLowerBounds.x && position.y > MapLowerBounds.y && position.x < MapUpperBounds.x && position.y < MapUpperBounds.y;
     }
 
    
