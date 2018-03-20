@@ -6,15 +6,9 @@ using UnityEngine;
 public class PlayerMotor : MonoBehaviour {
 
     #region Private Variables
-    /// <summary>
-    /// Player speed as a positive scalar
-    /// </summary>
+    Player player;
     [SerializeField]
-    float _speed = 10f;
-    [SerializeField]
-    float _jumpPower = 10f;
-    [SerializeField]
-    LayerMask rayMask;
+    ContactFilter2D jumpFilter;
     [SerializeField]
     float _fallMultiplier = 1f;
     [SerializeField]
@@ -22,18 +16,19 @@ public class PlayerMotor : MonoBehaviour {
 
     // Internal Velocity
     float _xVelocity = 0f;
-    
+    private bool _grounded = false;
 
     Rigidbody2D rb;
     #endregion
 
     #region Public Variables
-    public bool Grounded = false;
     /// <summary>
-    /// X input axis as float between -1 and 1
+    /// X input axis as a float between -1 and 1
     /// </summary>
     [HideInInspector]
     public float xInput;
+
+    public bool IsGrounded { get { return _grounded; } }
     #endregion
 
 
@@ -41,12 +36,13 @@ public class PlayerMotor : MonoBehaviour {
     // Use this for initialization
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
 	}
 
     // Update for game logic
     private void Update()
     {
-        _xVelocity = xInput * _speed;
+        _xVelocity = xInput * player.MoveSpeed;
         rb.velocity = new Vector2(_xVelocity, rb.velocity.y);
 
         if (rb.velocity.y < 0)
@@ -59,59 +55,61 @@ public class PlayerMotor : MonoBehaviour {
         }
     }
 
-    // Collision Callbacks
-    private void OnTriggerEnter2D(Collider2D collision)
+    // Collision Logic
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            Grounded = true;
+            _grounded = true;
             Platform plat = collision.gameObject.GetComponent<Platform>();
             plat.AttachedPlayer = gameObject;
         }
-
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            Grounded = true;
-        }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Platform"))
         {
-            Grounded = false;
+            _grounded = false;
             Platform plat = collision.gameObject.GetComponent<Platform>();
             plat.AttachedPlayer = null;
         }
+    }
 
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            Grounded = false;
-        }
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if(!Grounded)
-        if (collision.gameObject.CompareTag("Platform") || collision.gameObject.CompareTag("Ground"))
-        {
-            Grounded = true;
-        }
-    }
     #endregion
 
 
-    public void Jump()
+    #region Public Methods
+    /// <summary>
+    /// Try to jump
+    /// </summary>
+    public void TryJump()
     {
-        Debug.DrawRay(transform.position, Vector3.down * 1f, Color.red, 1f);
+        // Jump check constraints
+        CapsuleCollider2D collider = GetComponent<CapsuleCollider2D>();
+        Vector2 size = new Vector2(collider.size.x, 0.5f);
+        Vector2 origin = (transform.position + (Vector3)collider.offset + transform.up * -0.5f * collider.size.y);
+        Debug.Log("Size: " + size);
+        Debug.Log("Origin: " + origin);
         
-        rb.velocity = Vector2.up * _jumpPower;
-        Debug.Log("Jumped!");
         
     }
+    /// <summary>
+    /// Makes the player jump. Does not check if the player can jump first
+    /// </summary>
+    public void Jump()
+    {
+        //Debug.DrawRay(transform.position, Vector3.down * 1f, Color.red, 1f);
+        
+        rb.velocity = Vector2.up * player.JumpPower;
+        Debug.Log("Jumped!");
+    }
 
+    
     public void ResetVelocity()
     {
         rb.velocity = Vector2.zero;
     }
+    #endregion
 
     
 

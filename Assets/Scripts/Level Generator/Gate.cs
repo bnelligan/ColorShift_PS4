@@ -5,41 +5,35 @@ using UnityEngine;
 
 public class Gate : MonoBehaviour {
 
-    public Direction Side = Direction.NULL;
+    public Direction direction = Direction.NULL;
     public bool Full = false;
 
     MapNode _parentNode;
     MapNode _connectedNode;
-    BasePath _path;
-
-    // Position in tiles relative to world and node position
-    Vector2 _posWorld;
-    Vector2 _posNode;
+    Path _path;
 
     #region Access Variables
     public Vector2 WorldPosition
     {
-        get { return _posWorld; }
+        get {
+            return transform.position / LevelGenerator.TileSize; }
         set {
-            _posWorld = value;
-            transform.position = _posWorld * LevelGenerator.TileSize;
-        }
+            transform.position = value * LevelGenerator.TileSize; }
     }
-    public Vector2 NodePosition {
-        get { return _posNode; }
+    public Vector2 LocalPosition
+    {
+        get { 
+            return transform.localPosition / LevelGenerator.TileSize; }
         set {
-            _posNode = value;
-            transform.localPosition = _posNode * LevelGenerator.TileSize; 
-        }
+            transform.localPosition = value * LevelGenerator.TileSize; }
     }
+   
     MapNode ParentNode { get { return _parentNode; } }
     MapNode ConnectedNode { get { return _connectedNode; } }
     #endregion
 
     private void Awake()
     {
-        _posNode = transform.localPosition / LevelGenerator.TileSize;
-        _posWorld = transform.position / LevelGenerator.TileSize;
         _parentNode = GetComponentInParent<MapNode>();
         
 
@@ -55,15 +49,15 @@ public class Gate : MonoBehaviour {
     {
         Full = false;
         // Make a guess at the direction if not set manually
-        if(Side == Direction.NULL)
+        if(direction == Direction.NULL)
         {
             if(transform.localPosition.x < 0)
             {
-                Side = Direction.LEFT;
+                direction = Direction.LEFT;
             }
             else
             {
-                Side = Direction.RIGHT;
+                direction = Direction.RIGHT;
             }
 
             // Check if the gate is near the vertical center of its node
@@ -71,18 +65,18 @@ public class Gate : MonoBehaviour {
             {
                 if(transform.localPosition.y < 0)
                 {
-                    Side = Direction.DOWN;
+                    direction = Direction.DOWN;
                 }
                 else
                 {
-                    Side = Direction.UP;
+                    direction = Direction.UP;
                 }
             }
         }
         
     }
 
-    public void ConnectGate(Gate other, BasePath path)
+    public void ConnectGate(Gate other, Path path)
     {
         _parentNode.FullGates.Add(this);
         _parentNode.EmptyGates.Remove(this);
@@ -91,7 +85,7 @@ public class Gate : MonoBehaviour {
         Full = true;
     }
 
-    static public void ConnectGates(Gate gateA, Gate gateB, BasePath path)
+    static public void ConnectGates(Gate gateA, Gate gateB, Path path)
     {
         gateA.ConnectGate(gateB, path);
         gateB.ConnectGate(gateA, path);

@@ -11,15 +11,15 @@ public class LevelGenerator : MonoBehaviour {
     public Vector2 MapLowerBounds;
 
     // Min and Max distance between map nodes [x and y distances, not diagonal]
-    public float minSeperation = 6f;
+    public int minSeperation = 6;
     /// <summary>
     /// Maximum seperation between level segments in tiles
     /// </summary>
-    public float maxSeperation = 15f;
+    public int maxSeperation = 15;
     public float maxPlacementAngle;
 
     [SerializeField]
-    public List<BasePath> PossiblePathPrefabs;
+    public List<Path> PossiblePathPrefabs;
     [SerializeField]
     public List<MapNode> PossibleNodePrefabs;
 
@@ -81,13 +81,14 @@ public class LevelGenerator : MonoBehaviour {
 
         // Randomize placement info
         float angle = Random.Range(-maxPlacementAngle, maxPlacementAngle) * Mathf.Deg2Rad;
+        Debug.Log("Angle: " + angle);
         float dist = Random.Range(minSeperation, maxSeperation);
         float dx;
         float dy;
         Vector2 dispVec;
 
         // Calculate displacement vector and choose prefab list
-        Direction dir = parentGate.Side;
+        Direction dir = parentGate.direction;
         switch(dir)
         {
             case Direction.UP:
@@ -115,7 +116,12 @@ public class LevelGenerator : MonoBehaviour {
                 dy = 0;
                 break;
         }
+        // Round up to the nearest integer so it locks in place ot the tiles
         dispVec = new Vector2(dx, dy) * dist;
+        dispVec.x = Mathf.Ceil(dispVec.x);
+        dispVec.y = Mathf.Ceil(dispVec.y);
+        Debug.Log("DX: " + dispVec.x);
+        Debug.Log("DY: " + dispVec.y);
 
         // Verify prefab list
         if(prefabList == null)
@@ -125,42 +131,77 @@ public class LevelGenerator : MonoBehaviour {
             Debug.Log("Parent Gate: " + parentGate.name);
             return null;
         }
+        else if(prefabList.Count == 0)
+        {
+            Debug.LogWarning("No nodes available to connect");
+            Debug.Log("Parent Node: " + parentNode.name);
+            Debug.Log("Parent Gate: " + parentGate.name);
+            return null;
+        }
 
         // Create a random node from the list of valid prefabs
         int inode = Random.Range(0, prefabList.Count);
-        Debug.Log("Random node index: " + inode);
+        //Debug.Log("Random node index: " + inode);
         MapNode nodePrefab = prefabList[inode];
+
+        
+        
         Vector3 newPos = parentGate.transform.position + (Vector3)dispVec * TileSize;
         GameObject goNode = Instantiate(nodePrefab.gameObject, newPos, parentNode.transform.rotation);
+        
         newNode = goNode.GetComponent<MapNode>();
+        // Move the new node by a half it's size
+        if (parentGate.direction == Direction.RIGHT)
+            newNode.WorldPosition += new Vector2(newNode.Width / 2, 0);
+        else if (parentGate.direction == Direction.LEFT)
+            newNode.WorldPosition -= new Vector2(newNode.Width / 2, 0);
+        else if (parentGate.direction == Direction.UP)
+            newNode.WorldPosition += new Vector2(0, newNode.Height / 2);
+        else if(parentGate.direction == Direction.DOWN)
+            newNode.WorldPosition -= new Vector2(0, newNode.Height / 2);
         newNode.Init();
+
+        Debug.Log("Node position: " + newNode.WorldPosition);
+        Debug.Log("Parent node position: " + parentNode.WorldPosition);
+
 
         // Check if it's overlapping another section
         if (!newNode.IsValidPosition)
         {
             Debug.LogWarning("Invalid node: " + newNode.name);
-            Destroy(newNode);
+            Destroy(newNode.gameObject);
             return null;
         }
         else
-            newNode.Secured = true;
-
+        {
+            // Tag the node as secure
+            newNode.Secure();
+        }
+           
         // Check that the node is in bounds
         if(!CheckBounds(newNode.WorldPosition))
         {
             Debug.LogWarning("Node out of bounds: " + newNode.name);
-            Destroy(newNode);
+            Destroy(newNode.gameObject);
             return null;
         }
 
         // Create a random path to connect the nodes
-        BasePath pathPrefab = PossiblePathPrefabs[Random.Range(0, PossiblePathPrefabs.Count - 1)];
+        Path pathPrefab = PossiblePathPrefabs[Random.Range(0, PossiblePathPrefabs.Count)];
+        Debug.Log("Path chosen: " + pathPrefab.name);
         GameObject goPath = Instantiate(pathPrefab.gameObject, parentGate.transform);
-        BasePath path = goPath.GetComponent<BasePath>();
+        Path path = goPath.GetComponent<Path>();
         
         // Connect the gates with the path
         newGate = newNode.FindClosestGate(parentGate, 1000, out dist);
-        path.CreatePath(parentGate, newGate);
+        if(path.CreatePath(parentGate, newGate))
+        {
+            Debug.Log("Path created successfully from: " + path.GateA.WorldPosition + " to " + path.GateB.WorldPosition);
+        }
+        else
+        {
+            Debug.LogWarning("Unable to created path.");
+        }
 
         // Return the new node to it's parent node
         return newNode;

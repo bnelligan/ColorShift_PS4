@@ -26,9 +26,9 @@ GameObject:
   - component: {fileID: 50794861857801304}
   - component: {fileID: 114290388382844764}
   - component: {fileID: 114870110417650604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform_Default
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +85,7 @@ EdgeCollider2D:
   - {x: 1.1985487, y: 0.6380513}
 --- !u!114 &114290388382844764
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 11
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796254361246448}
@@ -101,7 +101,7 @@ MonoBehaviour:
   _assetGuid: 34840c6537fe1f94da9114a0cac76b84
 --- !u!114 &114870110417650604
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 11
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796254361246448}

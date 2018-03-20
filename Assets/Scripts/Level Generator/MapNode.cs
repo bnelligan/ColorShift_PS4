@@ -8,20 +8,23 @@ public class MapNode : MonoBehaviour {
     public MapNode ParentNode;
     public List<MapNode> ChildNodes;
     public MapNode HitNode;
-
+    
     public float Width;
     public float Height;
-    public bool Secured = false;
     public bool HasUpGate = false;
     public bool HasRightGate = false;
     public bool HasDownGate = false;
     public bool HasLeftGate = false;
     #endregion
 
-    #region Variables
+    #region Private Variables
     private bool _validPosition = true;
-
-    private Vector2 _worldPosition;
+    private bool _secured = false;
+    private bool _donePopulating = false;
+    private bool _populatingChildren = false;
+    [SerializeField]
+    private ContactFilter2D validateFilter;
+    
     private List<Gate> _gates;
     private List<Gate> _emptyGates;
     private List<Gate> _fullGates;
@@ -37,15 +40,14 @@ public class MapNode : MonoBehaviour {
     
     #region Access Variables
     public bool IsValidPosition { get { return _validPosition; } }
-    // Position relative to the root node in tiles
-    public Vector2 WorldPosition {
+    public bool IsSecured { get { return _secured; } }
+    // Position in tiles
+    public Vector2 WorldPosition
+    {
         get {
-            return _worldPosition;
-        }
+            return transform.position / LevelGenerator.TileSize; }
         set {
-            _worldPosition = value;
-            transform.position = _worldPosition * LevelGenerator.TileSize;
-        }
+            transform.position = value * LevelGenerator.TileSize; }
     }
     public List<Gate> Gates { get { return _gates; } }
     public List<Gate> EmptyGates { get { return _emptyGates; } }
@@ -56,9 +58,6 @@ public class MapNode : MonoBehaviour {
     #region Unity Callbacks
     private void Awake()
     {
-        // Set World Position
-        _worldPosition = transform.position / LevelGenerator.TileSize;
-
         // Get components
         _nodeCollider = GetComponent<Collider2D>();
 
@@ -79,27 +78,25 @@ public class MapNode : MonoBehaviour {
     }
     private void Update()
     {
-        if(_nodesToPopulate.Count > 0)
+        if(_donePopulating && !_populatingChildren)
         {
-            foreach(MapNode n in _nodesToPopulate)
-            {
-                n.Populate();
-            }
-            _nodesToPopulate.Clear();
+            PopulateChildren();
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    #endregion
+
+
+    #region Private Methods
+    private void PopulateChildren()
     {
-        
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Check if node is secured. This means it was the first one there.
-        if (!Secured)
+        _populatingChildren = true;
+
+        // Populate generated nodes
+        foreach (MapNode n in _nodesToPopulate)
         {
-            HitNode = collision.gameObject.GetComponentInParent<MapNode>();
-            _validPosition = false;
+            n.Populate();
         }
+        _nodesToPopulate.Clear();
     }
     #endregion
 
@@ -111,6 +108,29 @@ public class MapNode : MonoBehaviour {
         {
             RegisterGate(g);
         }
+        ValidatePosition();
+    }
+    public void ValidatePosition()
+    {
+        // Do a boxcast at the current position to check if it overlaps with anything else
+        RaycastHit2D[] results = new RaycastHit2D[2];
+        int hitCount = Physics2D.BoxCast((Vector2)transform.position, new Vector2(Width, Height) * LevelGenerator.TileSize, 0, Vector2.up, validateFilter, results);
+        //Debug.Log("Hitcount: " + hitCount);
+        foreach (RaycastHit2D hit in results)
+        {
+            if(hit)
+            {
+                if(hit.collider.gameObject != gameObject)
+                {
+                    Debug.Log("Hit: " + hit.collider.gameObject.name);
+                    _validPosition = false;
+                }
+            }
+        }
+    } 
+    public void Secure()
+    {
+        _secured = true;
     }
     /// <summary>
     /// Find the gate on this node closest to the source gate.
@@ -152,7 +172,7 @@ public class MapNode : MonoBehaviour {
         }
 
         // Add to directional list
-        switch(gate.Side)
+        switch(gate.direction)
         {
             case Direction.UP:
                 HasUpGate = true;
@@ -178,10 +198,15 @@ public class MapNode : MonoBehaviour {
     public void Populate()
     {
         Debug.Log("Populating: " + name);
-        List<Gate> egates = _emptyGates;
-        for(int i = 0; i < egates.Count; i++)
+        List<Gate> egates = new List<Gate>();
+        foreach(Gate gt in _emptyGates)
         {
-            Gate g = egates[i];
+            egates.Add(gt);
+        }
+        Debug.Log("Gates to populate: " + egates.Count);
+        foreach(Gate g in egates)
+        {
+            Debug.Log("Current gate: " + g.name + " Parent: " + name);
             if (g.Full == false)
             {
                 MapNode childNode = levelGenerator.CreateNode(this, g);
@@ -193,7 +218,12 @@ public class MapNode : MonoBehaviour {
                     _nodesToPopulate.Add(childNode);
                 }
             }
+            else
+            {
+                Debug.LogWarning("Gate full :" + g.name);
+            }
         }
+        _donePopulating = true;
     }
     #endregion
 

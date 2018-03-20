@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Path_MovingPlatform : BasePath {
+public class Path_MovingPlatform : Path {
     
     // Prefab reference
     Platform _prefabPlat;
@@ -48,7 +48,7 @@ public class Path_MovingPlatform : BasePath {
         _platform = clone.GetComponent<Platform>();
 
         // Set platform movement pattern
-        float period = _length; 
+        float period = _length/2; 
         _platform.SetMovementPattern(true, period, endGate.WorldPosition - startGate.WorldPosition);
 
         // Link the gates together

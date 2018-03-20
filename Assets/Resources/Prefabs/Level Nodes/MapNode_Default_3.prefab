@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 114114626933554810}
   - component: {fileID: 114951719836758456}
   - component: {fileID: 114378855069814456}
+  - component: {fileID: 114883061295946794}
   m_Layer: 0
   m_Name: GateMarker (5)
   m_TagString: Gate
@@ -175,6 +176,7 @@ GameObject:
   - component: {fileID: 114846507752929066}
   - component: {fileID: 114567680028032346}
   - component: {fileID: 114555392264197176}
+  - component: {fileID: 114683408508536934}
   m_Layer: 0
   m_Name: GateMarker (1)
   m_TagString: Gate
@@ -371,6 +373,7 @@ GameObject:
   - component: {fileID: 114956295411088086}
   - component: {fileID: 114135761162278292}
   - component: {fileID: 114451289436071994}
+  - component: {fileID: 114051735715033434}
   m_Layer: 0
   m_Name: GateMarker (4)
   m_TagString: Gate
@@ -392,6 +395,7 @@ GameObject:
   - component: {fileID: 114042282928488804}
   - component: {fileID: 114475091301788512}
   - component: {fileID: 114001967701509078}
+  - component: {fileID: 114711237236310156}
   m_Layer: 0
   m_Name: GateMarker (2)
   m_TagString: Gate
@@ -413,6 +417,7 @@ GameObject:
   - component: {fileID: 114843521559090474}
   - component: {fileID: 114196937288499532}
   - component: {fileID: 114400586018820350}
+  - component: {fileID: 114504734745028286}
   m_Layer: 0
   m_Name: GateMarker
   m_TagString: Gate
@@ -671,7 +676,7 @@ GameObject:
   - component: {fileID: 114539675078785344}
   - component: {fileID: 114767203436805420}
   - component: {fileID: 114116726943090296}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: MapNode_Default_3
   m_TagString: MapNode
   m_Icon: {fileID: 0}
@@ -803,6 +808,7 @@ GameObject:
   - component: {fileID: 114621727132414622}
   - component: {fileID: 114610117143100126}
   - component: {fileID: 114654305356169096}
+  - component: {fileID: 114372422187443396}
   m_Layer: 9
   m_Name: Platform_Blue (1)
   m_TagString: Platform
@@ -912,6 +918,7 @@ GameObject:
   - component: {fileID: 114982189286311822}
   - component: {fileID: 114943945587728344}
   - component: {fileID: 114107900119733056}
+  - component: {fileID: 114434868068052204}
   m_Layer: 9
   m_Name: Platform_Blue
   m_TagString: Platform
@@ -1129,6 +1136,7 @@ GameObject:
   - component: {fileID: 114012888251608986}
   - component: {fileID: 114792358973953338}
   - component: {fileID: 114613575552150388}
+  - component: {fileID: 114877014644509316}
   m_Layer: 0
   m_Name: GateMarker (3)
   m_TagString: Gate
@@ -1879,7 +1887,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1527763073025300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.28, y: -5.76, z: 0}
+  m_LocalPosition: {x: 0, y: -5.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4825580038401898}
@@ -2139,7 +2147,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537941054437978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 55.04, y: 14.08, z: 0}
+  m_LocalPosition: {x: -16.080854, y: -1.678724, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4325050146612460}
@@ -4993,6 +5001,85 @@ MonoBehaviour:
     _collection:
     - {fileID: 1421741751376208}
   _assetGuid: f63bc7f27b9e56c4cb6f71a04ee07bbb
+--- !u!114 &114051735715033434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360369123935560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 637162700, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objects:
+  - _target: {fileID: 1360369123935560}
+    _path: /0
+    _guidPath: 7f025f51-07cd-4059-bd85-572b8ca8a197
+    _isOverridden: 0
+    _components:
+    - _target: {fileID: 114478768758998910}
+      _type: Gate
+      _index: 0
+      _isOverridden: 0
+      _properties:
+      - _path: Side
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 3
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: direction
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 3
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  _overrideObjects: []
 --- !u!114 &114054032836009826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5030,7 +5117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Side: 3
+  direction: 1
   Full: 0
 --- !u!114 &114068630535922836
 MonoBehaviour:
@@ -5208,7 +5295,7 @@ MonoBehaviour:
   _assetGuid: f63bc7f27b9e56c4cb6f71a04ee07bbb
 --- !u!114 &114116726943090296
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537941054437978}
@@ -5435,7 +5522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Side: 3
+  direction: 1
   Full: 0
 --- !u!114 &114218227349592078
 MonoBehaviour:
@@ -5448,7 +5535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Side: 3
+  direction: 1
   Full: 0
 --- !u!114 &114224044126483884
 MonoBehaviour:
@@ -5495,7 +5582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMoving: 1
   _relativeDest: {x: 0, y: 3.5}
-  Period: 3
+  Period: 4
   AttachedPlayer: {fileID: 0}
 --- !u!114 &114240085841246492
 MonoBehaviour:
@@ -5722,7 +5809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Side: 3
+  direction: 3
   Full: 0
 --- !u!114 &114335192472148608
 MonoBehaviour:
@@ -5824,6 +5911,169 @@ MonoBehaviour:
     _collection:
     - {fileID: 1659808165245124}
   _assetGuid: 54d13df5f69a9f74f86989c45a2c87bd
+--- !u!114 &114372422187443396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1586076441976662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 637162700, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objects:
+  - _target: {fileID: 1586076441976662}
+    _path: /0
+    _guidPath: 019b08f0-cd56-4de7-ae71-f1710e7458d1
+    _isOverridden: 0
+    _components:
+    - _target: {fileID: 114397190445787608}
+      _type: Platform
+      _index: 0
+      _isOverridden: 0
+      _properties:
+      - _path: _isMoving
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 1
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: _relativeDest
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 3.5}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: _relativeDest.x
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: _relativeDest.y
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 3.5
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: Period
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 4
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  _overrideObjects: []
 --- !u!114 &114378855069814456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5882,7 +6132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMoving: 1
   _relativeDest: {x: 0, y: 3.5}
-  Period: 3
+  Period: 4
   AttachedPlayer: {fileID: 0}
 --- !u!114 &114400586018820350
 MonoBehaviour:
@@ -5975,6 +6225,169 @@ MonoBehaviour:
     _collection:
     - {fileID: 1242915914882196}
   _assetGuid: 37fe1c8d2e70ce04293b945eedf02ed3
+--- !u!114 &114434868068052204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1645917454859728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 637162700, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objects:
+  - _target: {fileID: 1645917454859728}
+    _path: /0
+    _guidPath: 019b08f0-cd56-4de7-ae71-f1710e7458d1
+    _isOverridden: 0
+    _components:
+    - _target: {fileID: 114234358602292610}
+      _type: Platform
+      _index: 0
+      _isOverridden: 0
+      _properties:
+      - _path: _isMoving
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 1
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: _relativeDest
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 3.5}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: _relativeDest.x
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: _relativeDest.y
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 3.5
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: Period
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 4
+        _intValue: 0
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  _overrideObjects: []
 --- !u!114 &114436252227867186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6094,7 +6507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Side: 3
+  direction: 3
   Full: 0
 --- !u!114 &114483941396032746
 MonoBehaviour:
@@ -6210,7 +6623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c94f716ee4846eb4c81d1fceb6aa12e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Side: 3
+  direction: 3
   Full: 0
 --- !u!114 &114501999774887816
 MonoBehaviour:
@@ -6228,6 +6641,57 @@ MonoBehaviour:
     _collection:
     - {fileID: 1209765428149566}
   _assetGuid: 54d13df5f69a9f74f86989c45a2c87bd
+--- !u!114 &114504734745028286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427311429380984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 637162700, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objects:
+  - _target: {fileID: 1427311429380984}
+    _path: /0
+    _guidPath: 7f025f51-07cd-4059-bd85-572b8ca8a197
+    _isOverridden: 0
+    _components:
+    - _target: {fileID: 114334596733066702}
+      _type: Gate
+      _index: 0
+      _isOverridden: 0
+      _properties:
+      - _path: direction
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 3
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  _overrideObjects: []
 --- !u!114 &114515491187924076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6335,11 +6799,24 @@ MonoBehaviour:
   HitNode: {fileID: 0}
   Width: 12
   Height: 10
-  Secured: 0
   HasUpGate: 0
   HasRightGate: 1
   HasDownGate: 0
   HasLeftGate: 1
+  validateFilter:
+    useTriggers: 1
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 4194304
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
   upGates: []
   rightGates: []
   downGates: []
@@ -7006,6 +7483,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _active: 0
+--- !u!114 &114683408508536934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126920712931646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 637162700, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objects:
+  - _target: {fileID: 1126920712931646}
+    _path: /0
+    _guidPath: 7f025f51-07cd-4059-bd85-572b8ca8a197
+    _isOverridden: 0
+    _components:
+    - _target: {fileID: 114218227349592078}
+      _type: Gate
+      _index: 0
+      _isOverridden: 0
+      _properties:
+      - _path: direction
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 1
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  _overrideObjects: []
 --- !u!114 &114689732207723422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7107,6 +7635,57 @@ MonoBehaviour:
   m_Script: {fileID: 1491221649, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114711237236310156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1421741751376208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 637162700, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objects:
+  - _target: {fileID: 1421741751376208}
+    _path: /0
+    _guidPath: 7f025f51-07cd-4059-bd85-572b8ca8a197
+    _isOverridden: 0
+    _components:
+    - _target: {fileID: 114065058854654454}
+      _type: Gate
+      _index: 0
+      _isOverridden: 0
+      _properties:
+      - _path: direction
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 1
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  _overrideObjects: []
 --- !u!114 &114724404631729512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7245,7 +7824,7 @@ MonoBehaviour:
   _guid: 90640ce3-6f40-4be8-9f41-5e9ed3ee00c1
 --- !u!114 &114767203436805420
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537941054437978}
@@ -7691,6 +8270,85 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _guid: f7d69ea6-c20c-4b1f-bf35-46990e6bf77c
+--- !u!114 &114877014644509316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796061787286676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 637162700, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objects:
+  - _target: {fileID: 1796061787286676}
+    _path: /0
+    _guidPath: 7f025f51-07cd-4059-bd85-572b8ca8a197
+    _isOverridden: 0
+    _components:
+    - _target: {fileID: 114498940439466858}
+      _type: Gate
+      _index: 0
+      _isOverridden: 0
+      _properties:
+      - _path: Side
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 3
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+      - _path: direction
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 3
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  _overrideObjects: []
 --- !u!114 &114877957740177730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7741,6 +8399,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color: 2
   _active: 0
+--- !u!114 &114883061295946794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1043366090937618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 637162700, guid: 325c5b2a7434372429c2ca9d61dba58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objects:
+  - _target: {fileID: 1043366090937618}
+    _path: /0
+    _guidPath: 7f025f51-07cd-4059-bd85-572b8ca8a197
+    _isOverridden: 0
+    _components:
+    - _target: {fileID: 114205206763579222}
+      _type: Gate
+      _index: 0
+      _isOverridden: 0
+      _properties:
+      - _path: direction
+        _animationCurveValue:
+          serializedVersion: 2
+          m_Curve: []
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        _booleanValue: 0
+        _boundsValue:
+          m_Center: {x: 0, y: 0, z: 0}
+          m_Extent: {x: 0, y: 0, z: 0}
+        _colorValue: {r: 0, g: 0, b: 0, a: 0}
+        _doubleValue: 0
+        _floatValue: 0
+        _intValue: 1
+        _longValue: 0
+        _objectReferenceValue: {fileID: 0}
+        _quaternionValue: {x: 0, y: 0, z: 0, w: 0}
+        _rectValue:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        _stringValue: 
+        _vector2Value: {x: 0, y: 0}
+        _vector3Value: {x: 0, y: 0, z: 0}
+        _vector4Value: {x: 0, y: 0, z: 0, w: 0}
+  _overrideObjects: []
 --- !u!114 &114889409925162092
 MonoBehaviour:
   m_ObjectHideFlags: 1

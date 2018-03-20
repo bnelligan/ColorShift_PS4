@@ -46,6 +46,10 @@ public class ColorManager : MonoBehaviour {
         _colors = new Dictionary<COLOR, ColorNode>();
         InitializeColors();
     }
+    private void Start()
+    {
+        ActivateColor(_activeColor.color);
+    }
     private void OnDisable()
     {
         UnregisterCallbacks();
@@ -75,8 +79,6 @@ public class ColorManager : MonoBehaviour {
 
         RegisterCallbacks();
         _activeColor = greenNode;
-        ActivateColor(COLOR.GREEN);
-
     }
     #endregion
 

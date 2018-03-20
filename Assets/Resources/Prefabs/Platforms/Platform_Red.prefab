@@ -138,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMoving: 0
   _relativeDest: {x: 0, y: 0}
-  Period: 2
+  Period: 0
   AttachedPlayer: {fileID: 0}
 --- !u!212 &212903192768654916
 SpriteRenderer:

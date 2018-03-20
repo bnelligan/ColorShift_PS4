@@ -208,9 +208,9 @@ GameObject:
   - component: {fileID: 114648891105214432}
   - component: {fileID: 114354716438065314}
   - component: {fileID: 114518489180423176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Platform_Default
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1605,8 +1605,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isMoving: 1
-  _relativeDest: {x: 0, y: 3.5}
-  Period: 3
+  _relativeDest: {x: 2, y: 4.5}
+  Period: 4
   AttachedPlayer: {fileID: 0}
 --- !u!114 &114326180769174618
 MonoBehaviour:
@@ -2181,7 +2181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMoving: 0
   _relativeDest: {x: 0, y: 0}
-  Period: 2
+  Period: 0
   AttachedPlayer: {fileID: 0}
 --- !u!212 &212003421073052646
 SpriteRenderer:

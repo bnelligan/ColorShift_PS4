@@ -6,29 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Levels_Tutorial/Tutorial_Movement.unity
+    path: Assets/Scenes/(TEST) Level Generator.unity
+    guid: 4e23fad97f5836d47acee4e6395c29f5
+  - enabled: 0
+    path: Assets/Scenes/_Completed/Tutorial_Movement.unity
     guid: cd76ee89786dc7144a4fcc79e6b239aa
-  - enabled: 1
-    path: Assets/Scenes/Levels_Tutorial/Level_FirstColor.unity
+  - enabled: 0
+    path: Assets/Scenes/_Completed/Tutorial_FirstColor.unity
     guid: 846ceb2d3b567cd4c84d59bff2706c22
-  - enabled: 1
-    path: Assets/Scenes/Levels_Tutorial/Level_FirstPlatforms.unity
+  - enabled: 0
+    path: Assets/Scenes/_Completed/Tutorial_FirstPlatforms.unity
     guid: 9c7b11b278a37564b90db976854856d3
-  - enabled: 1
-    path: Assets/Scenes/Level_Hashtag.unity
+  - enabled: 0
+    path: Assets/Scenes/_In Progress/Level_Hashtag.unity
     guid: 87f9b7376e653cd43b26937e8921a4d1
-  - enabled: 1
-    path: Assets/Scenes/Level_NewLevel.unity
+  - enabled: 0
+    path: Assets/Scenes/_In Progress/Level_SideRooms.unity
     guid: 8049cfcb9336899469a8ed4ea246d497
   - enabled: 0
-    path: Assets/Scenes/Level_Heart.unity
+    path: Assets/Scenes/_In Progress/Level_Heart.unity
     guid: 3f39d2f45df834948bba8f4195a0c1c5
   - enabled: 0
-    path: Assets/Scenes/Levels_Tutorial/Level_TwoColors.unity
+    path: Assets/Scenes/_Trash/Level_TwoColors.unity
     guid: 24facb7131b0cde42b56f52c1178a0c8
   - enabled: 0
-    path: Assets/Scenes/Level_CoveredFlag.unity
+    path: Assets/Scenes/_Trash/Level_CoveredFlag.unity
     guid: e39d45f442e774342bbbf4954b61437f
   - enabled: 0
-    path: Assets/Scenes/Level_CoveredButton.unity
+    path: Assets/Scenes/_Trash/Level_CoveredButton.unity
     guid: f9fe09264ed1a0649b8006e757ca0562

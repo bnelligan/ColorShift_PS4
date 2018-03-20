@@ -20,10 +20,6 @@ public class ColorButton : MonoBehaviour {
         _lastPress = Time.time - _cooldown;
     }
 
-    // Use this for initialization
-    void Start () {
-	}
-
     // Function called when the button is activated
     private void OnButtonPressed()
     {
@@ -37,7 +33,7 @@ public class ColorButton : MonoBehaviour {
         if(collision.gameObject.CompareTag("Player"))
         {
             PlayerMotor pm = collision.GetComponent<PlayerMotor>();
-            if(Time.time > _lastPress + _cooldown && !pm.Grounded)
+            if(Time.time > _lastPress + _cooldown && !pm.IsGrounded)
             {
                 OnButtonPressed();
             }

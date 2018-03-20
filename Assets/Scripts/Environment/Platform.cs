@@ -53,21 +53,22 @@ public class Platform : MonoBehaviour {
             // Move the player by the amount it's position changed by
             if(AttachedPlayer)
             {
+                //Debug.Log("Player is attached!");
                 if(AttachedPlayer.GetComponent<Rigidbody2D>().velocity.y <= 0)
-                    AttachedPlayer.transform.position += (transform.position - _lastPos);
+                    AttachedPlayer.transform.position += (transform.localPosition - _lastPos);
             }  
         }
 	}
 
     private void UpdatePosition()
     {
-        _lastPos = transform.position;
-        transform.position = _midpoint + Amp * Mathf.Cos(AFreq * Time.time - Phi);
+        _lastPos = transform.localPosition;
+        transform.localPosition = _midpoint + Amp * Mathf.Cos(AFreq * Time.time - Phi);
     }
     
     public void SetMovementPattern(bool isMoving, float period, Vector2 relativeDest)
     {
-        transform.position = _startPos;
+        transform.localPosition = _startPos;
         _relativeDest = relativeDest;
         _isMoving = isMoving;
         Period = period;
@@ -77,14 +78,17 @@ public class Platform : MonoBehaviour {
     {
         // Set start position and destination relative to start position
         _relativeDest *= LevelGenerator.TileSize;
-        _startPos = transform.position;
+        _startPos = transform.localPosition;
         _destPos = _startPos + _relativeDest;
         _midpoint = (_startPos + _destPos) / 2;
 
         // Set angular frequency and amplitude
         AFreq = 2 * Mathf.PI / Period;
         Amp = _relativeDest / 2;
-        _lastPos = transform.position;
-        UpdatePosition();
+        _lastPos = transform.localPosition;
+
+        // Set initial position
+        if(_isMoving)
+            UpdatePosition();
     }
 }
