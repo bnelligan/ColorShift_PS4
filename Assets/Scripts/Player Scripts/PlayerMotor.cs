@@ -8,7 +8,7 @@ public class PlayerMotor : MonoBehaviour {
     #region Private Variables
     Player player;
     [SerializeField]
-    ContactFilter2D jumpFilter;
+    LayerMask jumpMask;
     [SerializeField]
     float _fallMultiplier = 1f;
     [SerializeField]
@@ -86,12 +86,22 @@ public class PlayerMotor : MonoBehaviour {
     {
         // Jump check constraints
         CapsuleCollider2D collider = GetComponent<CapsuleCollider2D>();
-        Vector2 size = new Vector2(collider.size.x, 0.5f);
         Vector2 origin = (transform.position + (Vector3)collider.offset + transform.up * -0.5f * collider.size.y);
-        Debug.Log("Size: " + size);
+        float dist = 0.1f;
         Debug.Log("Origin: " + origin);
-        
-        
+
+        //Debug.DrawRay(origin + new Vector2(-.5f * collider.size.x, 0f), Vector3.down * 0.2f, Color.red, 1f);
+        //Debug.DrawRay(origin, Vector3.down * 0.2f, Color.red, 1f);
+        //Debug.DrawRay(origin + new Vector2(+.5f * collider.size.x, 0f), Vector3.down * 0.2f, Color.red, 1f);
+        RaycastHit2D r1Hit = Physics2D.Raycast(origin + new Vector2(-.5f * collider.size.x, 0f), Vector3.down, dist, jumpMask);
+        RaycastHit2D r2Hit = Physics2D.Raycast(origin, Vector3.down, dist, jumpMask);
+        RaycastHit2D r3Hit = Physics2D.Raycast(origin + new Vector2(+.5f * collider.size.x, 0f), Vector3.down, dist, jumpMask);
+
+        if (r1Hit || r2Hit || r3Hit)
+        {
+            Jump();
+        }
+
     }
     /// <summary>
     /// Makes the player jump. Does not check if the player can jump first

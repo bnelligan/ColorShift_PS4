@@ -24,16 +24,17 @@ public class Projectile : MonoBehaviour {
         Destroy(gameObject, 3);
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
-
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if(collision.gameObject != Shooter)
         {
-            
+            if(collision.gameObject.layer == 9) // Environment Layer
+            {
+                
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -20,10 +20,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Projectile
   - Environment
   - Friendly
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -53,4 +53,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 623148101
+    locked: 0
+  - name: Player
+    uniqueID: 1797761525
     locked: 0

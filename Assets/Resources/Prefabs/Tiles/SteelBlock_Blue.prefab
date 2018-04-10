@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4943102184737672}
   - component: {fileID: 212704883336242210}
-  - component: {fileID: 68526386882098992}
   - component: {fileID: 114212417822076710}
   - component: {fileID: 61701336356033212}
   - component: {fileID: 114630391622396134}
@@ -39,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318715948283328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.480143, y: 0.3479843, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +56,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.027837098}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -68,25 +67,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.2243258}
+  m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
---- !u!68 &68526386882098992
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1318715948283328}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3add984170b83024a94f4478fbd01bc1, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.64271927, y: 0.6378218}
-  - {x: 0.64271927, y: 0.6378217}
 --- !u!114 &114212417822076710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,7 +84,7 @@ MonoBehaviour:
   _active: 0
 --- !u!114 &114630391622396134
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318715948283328}
@@ -118,7 +100,7 @@ MonoBehaviour:
   _assetGuid: 37fe1c8d2e70ce04293b945eedf02ed3
 --- !u!114 &114970105060009048
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1318715948283328}

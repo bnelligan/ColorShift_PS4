@@ -8,10 +8,13 @@ public class PlayerController : MonoBehaviour {
 
     PlayerMotor motor;
     Player player;
+    [SerializeField]
+    Transform playerModel;
     public ControlType controlType = ControlType.KEYBOARD_MOUSE;
 
     string _joystickName;
     float _prevAxisX = 0;
+
 
     // Use this for initialization
     private void Awake()
@@ -45,15 +48,14 @@ public class PlayerController : MonoBehaviour {
         float yAxis = Input.GetAxis("Vertical");
         motor.xInput = xAxis;
 
-        // Flip player depending on direction
-        /*
-        if(xAxis != 0 && (_prevAxisX > 0 != xAxis > 0))
+        if(xAxis > 0)
         {
-            transform.Rotate(new Vector3(0, 1, 0), 180);
+            playerModel.rotation = Quaternion.Euler(0, 0, 0);
         }
-        if(_prevAxisX != 0)
-            _prevAxisX = xAxis;
-            */
+        else if (xAxis < 0)
+        {
+            playerModel.rotation = Quaternion.Euler(0, 180, 0);
+        }
 
         // Jump Input Check
         if (Input.GetButtonDown("Jump"))

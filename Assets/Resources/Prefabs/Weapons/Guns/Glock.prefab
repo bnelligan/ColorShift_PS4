@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4570093395492070}
   - component: {fileID: 114281710174820954}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Offset Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114029822090965280}
   - component: {fileID: 114356801537400636}
   - component: {fileID: 114233093903274518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Glock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,9 +163,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1797761525
+  m_SortingLayer: 3
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 8411a65dd0b04a64d8080f299b1dd0fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1

@@ -98,12 +98,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4026940006256858}
+  - component: {fileID: 114354881687931728}
   - component: {fileID: 212758442207868154}
-  - component: {fileID: 68125078110974618}
   - component: {fileID: 61423501506706876}
   - component: {fileID: 114096191861444640}
   - component: {fileID: 114379695449732376}
-  - component: {fileID: 114354881687931728}
   m_Layer: 9
   m_Name: SteelBlock
   m_TagString: Ground
@@ -119,12 +118,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4681341130751770}
+  - component: {fileID: 114638618387606374}
   - component: {fileID: 212450320530368016}
-  - component: {fileID: 68626447722776838}
   - component: {fileID: 61933978526935638}
   - component: {fileID: 114038781406895700}
   - component: {fileID: 114317140488848660}
-  - component: {fileID: 114638618387606374}
   m_Layer: 9
   m_Name: StripeBlock
   m_TagString: Ground
@@ -178,13 +176,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4904869421777574}
+  - component: {fileID: 114805610701026468}
   - component: {fileID: 212107182577062818}
-  - component: {fileID: 68255391697516870}
   - component: {fileID: 114133331873585722}
   - component: {fileID: 61624513483986538}
   - component: {fileID: 114922117160726186}
   - component: {fileID: 114546016573440396}
-  - component: {fileID: 114805610701026468}
   m_Layer: 9
   m_Name: SteelBlock_Red
   m_TagString: Ground
@@ -327,13 +324,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4903055474756666}
+  - component: {fileID: 114718488884589598}
   - component: {fileID: 212615726955427360}
-  - component: {fileID: 68088036635537974}
   - component: {fileID: 114124173945264340}
   - component: {fileID: 61056203664710602}
   - component: {fileID: 114226029801089096}
   - component: {fileID: 114719913070554366}
-  - component: {fileID: 114718488884589598}
   m_Layer: 9
   m_Name: SteelBlock_Blue
   m_TagString: Ground
@@ -365,13 +361,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4430229281221400}
+  - component: {fileID: 114052674260282478}
   - component: {fileID: 212302147061736274}
-  - component: {fileID: 68331783676970986}
   - component: {fileID: 114246134701878558}
   - component: {fileID: 61455572277206982}
   - component: {fileID: 114540734594916084}
   - component: {fileID: 114761597129661302}
-  - component: {fileID: 114052674260282478}
   m_Layer: 9
   m_Name: SteelBlock_Green
   m_TagString: Ground
@@ -796,7 +791,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.027837098}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -807,7 +802,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.2243258}
+  m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
 --- !u!61 &61123347488990210
 BoxCollider2D:
@@ -871,7 +866,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.027837098}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -882,7 +877,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.2243258}
+  m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
 --- !u!61 &61455572277206982
 BoxCollider2D:
@@ -896,7 +891,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.027837098}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -907,7 +902,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.2243258}
+  m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
 --- !u!61 &61464684338137376
 BoxCollider2D:
@@ -996,7 +991,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.027837098}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1007,7 +1002,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.2243258}
+  m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
 --- !u!61 &61933978526935638
 BoxCollider2D:
@@ -1021,7 +1016,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.027837098}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1032,7 +1027,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 1.2243258}
+  m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
 --- !u!61 &61985322099083402
 BoxCollider2D:
@@ -1059,57 +1054,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.2243258}
   m_EdgeRadius: 0
---- !u!68 &68088036635537974
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1772066940710462}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3add984170b83024a94f4478fbd01bc1, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.64271927, y: 0.6378218}
-  - {x: 0.64271927, y: 0.6378217}
---- !u!68 &68125078110974618
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1163521285386384}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3add984170b83024a94f4478fbd01bc1, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.64271927, y: 0.6378218}
-  - {x: 0.64271927, y: 0.6378217}
---- !u!68 &68255391697516870
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1404835789367518}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3add984170b83024a94f4478fbd01bc1, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.64271927, y: 0.6378218}
-  - {x: 0.64271927, y: 0.6378217}
 --- !u!68 &68325703643413596
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1127,23 +1071,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.1986037, y: 0.6393866}
   - {x: 1.1985487, y: 0.6380513}
---- !u!68 &68331783676970986
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1874855074903782}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3add984170b83024a94f4478fbd01bc1, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.64271927, y: 0.6378218}
-  - {x: 0.64271927, y: 0.6378217}
 --- !u!68 &68352862788168466
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -1195,23 +1122,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -1.2008253, y: 0.639138}
   - {x: 1.1998012, y: 0.63772494}
---- !u!68 &68626447722776838
-EdgeCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1215625219058972}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 3add984170b83024a94f4478fbd01bc1, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.64271927, y: 0.6378218}
-  - {x: 0.64271927, y: 0.6378217}
 --- !u!68 &68920673589699676
 EdgeCollider2D:
   m_ObjectHideFlags: 1
