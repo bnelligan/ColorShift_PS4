@@ -43,7 +43,24 @@ public class Platform : MonoBehaviour {
         Init();
     }
 
-    // Update is called once per frame
+    private void Init()
+    {
+        // Set start position and destination relative to start position
+        _relativeDest *= LevelGenerator.TileSize;
+        _startPos = transform.localPosition;
+        _destPos = _startPos + _relativeDest;
+        _midpoint = (_startPos + _destPos) / 2;
+
+        // Set angular frequency and amplitude
+        AFreq = 2 * Mathf.PI / Period;
+        Amp = _relativeDest / 2;
+        _lastPos = transform.localPosition;
+
+        // Set initial position
+        if(_isMoving)
+            UpdatePosition();
+    }
+    // Fixed update for physics
     void FixedUpdate () {
 		if(_isMoving)
         {
@@ -74,21 +91,5 @@ public class Platform : MonoBehaviour {
         Period = period;
         Init();
     }
-    private void Init()
-    {
-        // Set start position and destination relative to start position
-        _relativeDest *= LevelGenerator.TileSize;
-        _startPos = transform.localPosition;
-        _destPos = _startPos + _relativeDest;
-        _midpoint = (_startPos + _destPos) / 2;
-
-        // Set angular frequency and amplitude
-        AFreq = 2 * Mathf.PI / Period;
-        Amp = _relativeDest / 2;
-        _lastPos = transform.localPosition;
-
-        // Set initial position
-        if(_isMoving)
-            UpdatePosition();
-    }
+    
 }

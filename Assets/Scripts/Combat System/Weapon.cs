@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FireMode { SEMI_AUTO, FULL_AUTO }
+public enum FireMode { SEMI, AUTO }
 public enum WeaponType { HAND_GUN, RIFLE, MACHINE_GUN, SWORD, BALLISTIC,   }
 public abstract class Weapon : MonoBehaviour {
 
@@ -12,23 +12,22 @@ public abstract class Weapon : MonoBehaviour {
     [SerializeField]
     protected float _shotDelay;
     protected float _lastShotTime;
-    [SerializeField]
-    protected WeaponType _type;
-    [SerializeField]
-    protected FireMode _fireMode;
+    public WeaponType Type;
+    public FireMode fireMode;
     [SerializeField]
     protected Transform _offsetPoint;
+
+    public GameObject owner;
     #endregion
 
     #region Public Properties
     public float Damage { get { return _damage; } }
     public float RoundsPerMinute { get { return 60 / _shotDelay; } }
     public float ShotDelay { get { return _shotDelay; } }
-    public WeaponType Type { get { return _type; } }
     #endregion
 
 
-    public GameObject owner;
+    
     private void Awake()
     {
         _lastShotTime = Time.time - _shotDelay;

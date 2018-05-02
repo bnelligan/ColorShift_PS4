@@ -30,9 +30,16 @@ public class Projectile : MonoBehaviour {
         
         if(collision.gameObject != Shooter)
         {
-            if(collision.gameObject.layer == 9) // Environment Layer
+            // Environment Layer
+            if(collision.gameObject.layer == 9) 
             {
-                
+                Destroy(gameObject);
+            }
+
+            IDamageable<float> dmgable = collision.gameObject.GetComponent<IDamageable<float>>();
+            if(dmgable != null)
+            {
+                dmgable.TakeDamage(Damage);
                 Destroy(gameObject);
             }
         }

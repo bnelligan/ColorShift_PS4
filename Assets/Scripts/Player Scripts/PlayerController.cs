@@ -72,11 +72,25 @@ public class PlayerController : MonoBehaviour {
         {
             ColorManager.ShiftLeft();
         }
+
         // Fire Weapon Input
-        if(Input.GetButtonDown("Fire1"))
+        if(player.ActiveWeapon.fireMode == FireMode.SEMI)       
         {
-            player.ActiveWeapon.Trigger();
+            // Semi auto 
+            if (Input.GetButtonDown("Fire1"))
+            {
+                player.ActiveWeapon.Trigger();
+            }
         }
+        else if(player.ActiveWeapon.fireMode == FireMode.AUTO)  
+        {
+            // Full auto
+            if(Input.GetButton("Fire1"))
+            {
+                player.ActiveWeapon.Trigger();
+            }
+        }
+        
         // Weapon Aiming
         
         // Exit game

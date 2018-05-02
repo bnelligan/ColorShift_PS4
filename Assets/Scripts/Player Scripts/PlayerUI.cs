@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour {
-
-    [SerializeField]
-    Text _txtHealth;
+    
     // Reference to player script
     Player player;
+    [SerializeField]
+    private Slider HpBar;
 
     private void Awake()
     {
@@ -16,11 +16,13 @@ public class PlayerUI : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        _txtHealth.text = player.CurrentHP.ToString();
+        HpBar.maxValue = player.MaxHP;
+        HpBar.value = player.MaxHP;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        _txtHealth.text = player.CurrentHP.ToString();
+        HpBar.maxValue = player.MaxHP;
+        HpBar.value = player.CurrentHP;
     }
 }

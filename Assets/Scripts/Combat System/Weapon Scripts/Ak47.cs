@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Glock : Weapon {
+public class Ak47 : Weapon {
 
     [SerializeField]
     Projectile bullet;

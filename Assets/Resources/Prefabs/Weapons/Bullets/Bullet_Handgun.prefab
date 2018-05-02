@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 0
-  Speed: 30
+  Speed: 60
   Shooter: {fileID: 0}
 --- !u!114 &114764498275724728
 MonoBehaviour:

@@ -18,11 +18,14 @@ public class Player : MonoBehaviour, IDamageable<float>, IKillable {
     float _currentHp;
     [SerializeField]
     float _maxHpBase = 100f;
-    
     [SerializeField]
     float _jumpPower;
     [SerializeField]
     float _moveSpeed;
+
+    // Records
+    public float Kills = 0;
+
     #endregion
 
     #region Public Variables
@@ -56,6 +59,7 @@ public class Player : MonoBehaviour, IDamageable<float>, IKillable {
         _currentHp = MaxHP;
         _startPos = transform.position;
         motor = GetComponent<PlayerMotor>();
+        activeWeapon = GetComponentInChildren<Weapon>();
     }
 
     // Update is called once per frame
@@ -76,6 +80,11 @@ public class Player : MonoBehaviour, IDamageable<float>, IKillable {
         ColorManager.ResetLevel();
         Debug.Log("You Died!");
     }
+
+    public void Die(GameObject killer)
+    {
+        Die();
+    }
     public void TakeDamage(float damageTaken)
     {
         _currentHp -= damageTaken;
@@ -85,4 +94,8 @@ public class Player : MonoBehaviour, IDamageable<float>, IKillable {
         }
     }
         
+    public void RecordKill()
+    {
+        Kills++;
+    }
 }

@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMoving: 1
   _relativeDest: {x: 0, y: 4.5}
-  Period: 4
+  Period: 3
   AttachedPlayer: {fileID: 0}
 --- !u!114 &114718488884589598
 MonoBehaviour:
