@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour, IDamageable<float>, IKillable {
     private Rigidbody2D rb;
 
     private float _lastAttack;
+    private Vector3 _moveVector;
 
 	// Use this for initialization
 	void Awake () {
@@ -100,8 +101,16 @@ public class Enemy : MonoBehaviour, IDamageable<float>, IKillable {
     public virtual void MoveTowards(Vector3 destVec)
     {
         Vector3 vecToTarget = destVec - transform.position;
-
-        rb.velocity = vecToTarget.normalized * moveSpeed * LevelGenerator.TileSize;
+        _moveVector = vecToTarget.normalized;
         
+    }
+    public virtual void StopMoving()
+    {
+        _moveVector = Vector2.zero;
+    }
+
+    private void FixedUpdate()
+    {
+        rb.MovePosition(transform.position + _moveVector * moveSpeed * Time.deltaTime);
     }
 }

@@ -76,6 +76,8 @@ public class Player : MonoBehaviour, IDamageable<float>, IKillable {
         transform.position = _startPos;
         // Reset velocity
         motor.ResetVelocity();
+        // Reset health
+        _currentHp = MaxHP;
         // Reset the level
         ColorManager.ResetLevel();
         Debug.Log("You Died!");

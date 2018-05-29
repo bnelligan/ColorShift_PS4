@@ -7,16 +7,13 @@ public class EnemyAI : MonoBehaviour {
     
     EnemyState state;
     Enemy enemy;
+    public float AggroRange;
 
     private void Awake()
     {
         state = GetComponent<EnemyState>();
         enemy = GetComponent<Enemy>();
     }
-    // Update is called once per frame
-    void Update () {
-		
-	}
 
     public void ChangeState(AI_State aistate)
     {
@@ -25,6 +22,7 @@ public class EnemyAI : MonoBehaviour {
 
         if(aistate == AI_State.Patrol)
         {
+
             Destroy(oldState);
             state = gameObject.AddComponent<EnemyPatrol>();
         }
@@ -32,6 +30,11 @@ public class EnemyAI : MonoBehaviour {
         {
             Destroy(oldState);
             state = gameObject.AddComponent<EnemyChase>();
+        }
+        else if(aistate == AI_State.Idle)
+        {
+            Destroy(oldState);
+            state = gameObject.AddComponent<EnemyIdle>();
         }
     }
 }

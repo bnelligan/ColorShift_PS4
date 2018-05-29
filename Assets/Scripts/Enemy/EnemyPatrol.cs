@@ -5,24 +5,35 @@ using UnityEngine;
 public class EnemyPatrol : EnemyState
 {
     public bool relativeToStart = true;
-    public float AggroRange;
     public Vector3[] PatrolPoints;
 
     private Vector3 _destPoint;
     private int _destIndex = 0;
     private Vector3 _prevPoint;
     
-    private static float smallDist = 0.15f * 0.15f;
+    // Compared to squared magnitude
+    private static float sqrSmDist = 0.15f * 0.15f;
 
     protected override void Awake()
     {
         base.Awake();
+        // Check that the patrol points are not too close together
+        for(int i = PatrolPoints.Length-1; i > 0; i--)
+        {
+            float d = (PatrolPoints[i] - PatrolPoints[i - 1]).sqrMagnitude;
+            if(d < sqrSmDist)
+            {
+                Debug.LogWarning("Patrol points too close.");
+                ai.ChangeState(AI_State.Idle);
+                return;
+            }
+        }
         if (relativeToStart)
         {
             for (int i = 0; i < PatrolPoints.Length; i++)
             {
-                PatrolPoints[i] *= LevelGenerator.TileSize;
-                PatrolPoints[i] += transform.position;
+                // Scale the patrol points by the tile size
+                PatrolPoints[i] = transform.position + PatrolPoints[i] * LevelGenerator.TileSize;
             }
         }
         SetDest(_destIndex);
@@ -31,19 +42,20 @@ public class EnemyPatrol : EnemyState
     {
         // Aggro check
         float sqDist = (transform.position - player.transform.position).sqrMagnitude;
-        if (sqDist <= AggroRange*AggroRange)
+        if (sqDist <= ai.AggroRange*ai.AggroRange)
         {
+            // Chase player
             ai.ChangeState(AI_State.Chase);
             return;
         }
-
+        // Move to current destination point
         MoveToDest();
     }
 
     private bool ReachedDest()
     {
         float sqDist = (transform.position - _destPoint).sqrMagnitude;
-        return sqDist <= smallDist;
+        return sqDist <= sqrSmDist;
     }
 
     private void MoveToDest()
@@ -54,7 +66,7 @@ public class EnemyPatrol : EnemyState
             NextPoint();
         }
     }
-    private void NextPoint()
+    public void NextPoint()
     {
         _destIndex++;
         if(_destIndex >= PatrolPoints.Length || _destIndex < 0)
@@ -68,7 +80,6 @@ public class EnemyPatrol : EnemyState
     {
         if(index < PatrolPoints.Length)
         {
-            _prevPoint = _destPoint;
             _destPoint = PatrolPoints[index];
             _destIndex = index;
         }

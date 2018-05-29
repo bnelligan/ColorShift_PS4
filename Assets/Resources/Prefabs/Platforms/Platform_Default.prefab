@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796254361246448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.12, y: 3.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ EdgeCollider2D:
   - {x: 1.1985487, y: 0.6380513}
 --- !u!114 &114290388382844764
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796254361246448}
@@ -101,7 +101,7 @@ MonoBehaviour:
   _assetGuid: 34840c6537fe1f94da9114a0cac76b84
 --- !u!114 &114870110417650604
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796254361246448}
@@ -122,9 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6bc919ba84644abde648e688f467c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isMoving: 1
-  _relativeDest: {x: -2, y: 0}
-  Period: 5
+  _isMoving: 0
+  _relativeDest: {x: 0, y: 0}
+  Period: 0
   AttachedPlayer: {fileID: 0}
 --- !u!212 &212587275158807048
 SpriteRenderer:
@@ -159,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 96bf1e92f3f721f46a72392701aeb4fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

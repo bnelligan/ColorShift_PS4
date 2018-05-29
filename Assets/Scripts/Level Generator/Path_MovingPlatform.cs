@@ -14,6 +14,23 @@ public class Path_MovingPlatform : Path {
         // Set path range
 		minDist = new Vector2(0,0);
         maxDist = new Vector2(20, 20);
+        // Randomize the color
+        int rcol = Random.Range(0, 4);
+        switch(rcol)
+        {
+            case 0:
+                _color = COLOR.BLUE;
+                break;
+            case 1:
+                _color = COLOR.RED;
+                break;
+            case 2:
+                _color = COLOR.GREEN;
+                break;
+            case 3:
+                _color = COLOR.NONE;
+                break;
+        }
         LoadPlatformPrefab();
 	}
 	
@@ -44,7 +61,7 @@ public class Path_MovingPlatform : Path {
             return false;
 
         // Create platform
-        GameObject clone = Instantiate(_prefabPlat.gameObject, transform);
+        GameObject clone = Instantiate(_prefabPlat.gameObject, startGate.transform.position, Quaternion.Euler(0,0,0));
         _platform = clone.GetComponent<Platform>();
 
         // Set platform movement pattern

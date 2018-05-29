@@ -99,7 +99,7 @@ MonoBehaviour:
   _active: 0
 --- !u!114 &114294956514569334
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 11
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467472479119908}
@@ -124,13 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d6bc919ba84644abde648e688f467c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isMoving: 1
-  _relativeDest: {x: 2, y: 4.5}
-  Period: 4
+  _isMoving: 0
+  _relativeDest: {x: 0, y: 0}
+  Period: 0
   AttachedPlayer: {fileID: 0}
 --- !u!114 &114582012248757958
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 11
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1467472479119908}
@@ -171,8 +171,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -411734417
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 154af3a3153397d47a3a8163879a9ca3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

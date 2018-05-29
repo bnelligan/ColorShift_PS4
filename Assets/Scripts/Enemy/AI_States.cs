@@ -21,4 +21,6 @@ public abstract class EnemyState : MonoBehaviour
         ui = GetComponent<UI_Enemy>();
         player = FindObjectOfType<Player>();
     }
+
+    
 }

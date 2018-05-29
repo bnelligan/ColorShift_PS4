@@ -39,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006119996042996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.39, y: -0.45, z: 0}
+  m_LocalScale: {x: 1.5707617, y: 1.570761, z: 1.570761}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   Shooter: {fileID: 0}
 --- !u!114 &114764498275724728
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006119996042996}
@@ -118,7 +118,7 @@ MonoBehaviour:
   _guid: 59b9232d-64ac-4490-9a9d-3ac6b3c23709
 --- !u!114 &114860595092025574
 MonoBehaviour:
-  m_ObjectHideFlags: 11
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1006119996042996}

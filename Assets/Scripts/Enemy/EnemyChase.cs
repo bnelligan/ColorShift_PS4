@@ -14,8 +14,15 @@ public class EnemyChase : EnemyState
 
     private void Update()
     {
+        // Check if player is out of range
+        float sqDist = (transform.position - player.transform.position).sqrMagnitude;
+        if (sqDist > ai.AggroRange*ai.AggroRange)
+        {
+            ai.ChangeState(AI_State.Patrol);
+            return;
+        }
+        // Move towards player
         enemy.MoveTowards(target.transform.position);
-
     }
 
     private void OnTriggerStay2D(Collider2D collision)

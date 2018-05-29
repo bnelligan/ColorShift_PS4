@@ -108,13 +108,13 @@ public class MapNode : MonoBehaviour {
         {
             RegisterGate(g);
         }
-        ValidatePosition();
     }
     public void ValidatePosition()
     {
+        _validPosition = true;
         // Do a boxcast at the current position to check if it overlaps with anything else
         RaycastHit2D[] results = new RaycastHit2D[2];
-        int hitCount = Physics2D.BoxCast((Vector2)transform.position, new Vector2(Width, Height) * LevelGenerator.TileSize, 0, Vector2.up, validateFilter, results);
+        int hitCount = Physics2D.BoxCast(transform.position, new Vector2(Width, Height) * LevelGenerator.TileSize, 0, Vector2.up, validateFilter, results);
         //Debug.Log("Hitcount: " + hitCount);
         foreach (RaycastHit2D hit in results)
         {
@@ -138,7 +138,7 @@ public class MapNode : MonoBehaviour {
     /// <param name="source">Starting gate to measure from</param>
     /// <param name="maxDist">Maximum allowed distance in tiles</param>
     /// <returns></returns>
-    public Gate FindClosestGate(Gate source, float maxDist, out float seperation)
+    public Gate FindClosestGate(Gate source, float maxDist)
     {
         Gate closest = null;
         float distance = maxDist;
@@ -154,10 +154,6 @@ public class MapNode : MonoBehaviour {
                 distance = d;
             }
         }
-        if (distance != maxDist)
-            seperation = distance;
-        else
-            seperation = 0;
 
         return closest;
     }
